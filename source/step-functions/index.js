@@ -29,7 +29,12 @@ exports.handler = async (event) => {
         switch (true) {
             case event.hasOwnProperty('Records'):
                 // Ingest workflow triggered by s3 event::
-                event.guid = uuidv4();
+                // mxc: change identity from guid to item publicId
+                // event.guid = uuidv4();
+                let fileFullName = event.Records[0].s3.object.key;
+                let fileName= fileFullName.substring(fileFullName.lastIndexOf("/") + 1);
+                event.filePath =  fileFullName.substring(0, fileFullName.lastIndexOf("/") + 1)
+                event.guid = fileName.split("-", 1)[0];
 
                 // Identify file extention of s3 object::
                 let key = decodeURIComponent(event.Records[0].s3.object.key.replace(/\+/g, " "));
@@ -41,7 +46,7 @@ exports.handler = async (event) => {
                 params = {
                     stateMachineArn: process.env.IngestWorkflow,
                     input: JSON.stringify(event),
-                    name: event.guid
+                    name: event.guid + uuidv4()
                 };
                 response = 'success';
                 break;
@@ -53,7 +58,7 @@ exports.handler = async (event) => {
                     input: JSON.stringify({
                         guid: event.guid
                     }),
-                    name: event.guid
+                    name: event.guid + uuidv4()
                 };
                 response = 'success';
                 break;
@@ -63,7 +68,7 @@ exports.handler = async (event) => {
                 params = {
                     stateMachineArn: process.env.PublishWorkflow,
                     input: JSON.stringify(event),
-                    name: event.detail.userMetadata.guid
+                    name: event.detail.userMetadata.guid + uuidv4()
                 };
                 response = 'success';
                 break;
