@@ -15,12 +15,12 @@
                     {
                         "Preset": "_Mp4_Avc_Aac_16x9_1920x1080p_24Hz_6Mbps_qvbr",
                         "Extension": "mp4",
-                        "NameModifier": "_Mp4_Avc_Aac_16x9_1920x1080p_24Hz_6Mbps_qvbr"
+                        "NameModifier": "-medium"
                     },
                     {
                         "Preset": "_Mp4_Avc_Aac_16x9_1280x720p_24Hz_4.5Mbps_qvbr",
                         "Extension": "mp4",
-                        "NameModifier": "_Mp4_Avc_Aac_16x9_1280x720p_24Hz_4.5Mbps_qvbr"
+                        "NameModifier": "-small"
                     }
                 ]
             },
