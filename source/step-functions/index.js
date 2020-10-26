@@ -33,8 +33,9 @@ exports.handler = async (event) => {
                 // event.guid = uuidv4();
                 let fileFullName = event.Records[0].s3.object.key;
                 let fileName= fileFullName.substring(fileFullName.lastIndexOf("/") + 1);
-                event.filePath =  fileFullName.substring(0, fileFullName.lastIndexOf("/") + 1)
-                event.guid = fileName.split("-", 1)[0];
+                //event.filePath =  fileFullName.substring(0, fileFullName.lastIndexOf("/") + 1)
+                //event.guid = fileName.split("-", 1)[0];
+                event.guid = fileName.substring(0, fileName.lastIndexOf("."));
 
                 // Identify file extention of s3 object::
                 let key = decodeURIComponent(event.Records[0].s3.object.key.replace(/\+/g, " "));

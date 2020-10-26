@@ -20,12 +20,28 @@ exports.handler = async (event) => {
 
     const s3 = new AWS.S3();
     let data;
+    let fileFullName = event.Records[0].s3.object.key;
+    let filePath =  fileFullName.substr(0, fileFullName.lastIndexOf("/"));
+    let site;
+    switch(filePath)
+    {
+        case "ruby":
+            site = "ruby";
+            break;
+        case "emerald":
+            site = "emerald";
+            break;
+        default:
+            site = "sapphire";
+
+    }
 
     try {
         // Default configuration for the workflow is built using the enviroment variables.
         // Any parameter in config can be overwriten using a metadata file.
         data = {
             guid: event.guid,
+            site: site,
             startTime: moment().utc().toISOString(),
             workflowTrigger: event.workflowTrigger,
             workflowStatus: 'Ingest',
