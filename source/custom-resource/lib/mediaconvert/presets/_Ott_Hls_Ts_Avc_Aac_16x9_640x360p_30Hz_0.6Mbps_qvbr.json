@@ -54,32 +54,13 @@
      "RespondToAfd": "NONE",
      "Sharpness": 50,
      "AfdSignaling": "NONE",
-     "Height": 360,
-     "Width": 640,
+     "Height": 640,
+     "Width": 360,
      "ScalingBehavior": "DEFAULT",
      "ColorMetadata": "INSERT",
      "AntiAlias": "ENABLED",
      "TimecodeInsertion": "DISABLED"
    },
-   "AudioDescriptions": [{
-     "CodecSettings": {
-       "Codec": "AAC",
-       "AacSettings": {
-         "CodecProfile": "HEV1",
-         "Specification": "MPEG4",
-         "RateControlMode": "CBR",
-         "AudioDescriptionBroadcasterMix": "NORMAL",
-         "SampleRate": 48000,
-         "Bitrate": 64000,
-         "CodingMode": "CODING_MODE_2_0",
-         "RawFormat": "NONE"
-       }
-     },
-     "AudioSourceName": "Audio Selector 1",
-     "AudioTypeControl": "FOLLOW_INPUT",
-     "LanguageCodeControl": "FOLLOW_INPUT",
-     "AudioType": 0
-   }],
    "ContainerSettings": {
      "M3u8Settings": {
        "PatInterval": 0,
