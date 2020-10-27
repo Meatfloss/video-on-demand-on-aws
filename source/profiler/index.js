@@ -74,9 +74,15 @@ exports.handler = async (event) => {
         if (!event.jobTemplate) {
             // Match the jobTemplate to the encoding Profile.
             const jobTemplates = {
-                '2160': event.jobTemplate_2160p,
-                '1080': event.jobTemplate_1080p,
-                '720': event.jobTemplate_720p
+                'sapphire2160': event.jobTemplate_sapphire_2160p,
+                'sapphire1080': event.jobTemplate_sapphire_1080p,
+                'sapphire720': event.jobTemplate_sapphire_720p,
+                'ruby2160': event.jobTemplate_ruby_2160p,
+                'ruby1080': event.jobTemplate_ruby_1080p,
+                'ruby720': event.jobTemplate_ruby_720p,
+                'emerald2160': event.jobTemplate_emerald_2160p,
+                'emerald1080': event.jobTemplate_emerald_1080p,
+                'emerald720': event.jobTemplate_emerald_720p,
             };
 
             event.jobTemplate = jobTemplates[encodeProfile];
