@@ -1,0 +1,72 @@
+{
+  "VideoDescription": {
+    "CodecSettings": {
+      "H265Settings": {
+        "NumberReferenceFrames": 3,
+        "SpatialAdaptiveQuantization": "ENABLED",
+        "TemporalAdaptiveQuantization": "ENABLED",
+        "FramerateNumerator": 24000,
+        "Tiles": "ENABLED",
+        "MinIInterval": 0,
+        "UnregisteredSeiTimecode": "DISABLED",
+        "FramerateControl": "SPECIFIED",
+        "CodecProfile": "MAIN_MAIN",
+        "FramerateDenominator": 1001,
+        "QvbrSettings": {
+          "QvbrQualityLevel": 8
+        },
+        "MaxBitrate": 20000000,
+        "RateControlMode": "QVBR",
+        "GopBReference": "ENABLED",
+        "GopSizeUnits": "SECONDS",
+        "FlickerAdaptiveQuantization": "ENABLED",
+        "Telecine": "NONE",
+        "ParDenominator": 1,
+        "AdaptiveQuantization": "HIGH",
+        "TemporalIds": "DISABLED",
+        "InterlaceMode": "PROGRESSIVE",
+        "QualityTuningLevel": "SINGLE_PASS_HQ",
+        "HrdBufferInitialFillPercentage": 90,
+        "SlowPal": "DISABLED",
+        "NumberBFramesBetweenReferenceFrames": 3,
+        "SampleAdaptiveOffsetFilterMode": "ADAPTIVE",
+        "GopSize": 2.0,
+        "ParControl": "SPECIFIED",
+        "Slices": 4,
+        "FramerateConversionAlgorithm": "DUPLICATE_DROP",
+        "AlternateTransferFunctionSei": "DISABLED",
+        "ParNumerator": 1,
+        "SceneChangeDetect": "ENABLED",
+        "CodecLevel": "AUTO",
+        "GopClosedCadence": 1,
+        "HrdBufferSize": 16000000
+      },
+      "Codec": "H_265"
+    },
+    "DropFrameTimecode": "ENABLED",
+    "VideoPreprocessors": {
+      "Deinterlacer": {
+        "Control": "NORMAL",
+        "Mode": "DEINTERLACE",
+        "Algorithm": "INTERPOLATE"
+      }
+    },
+    "RespondToAfd": "NONE",
+    "Sharpness": 50,
+    "AfdSignaling": "NONE",
+    "Height": 3840,
+    "Width": 2160,
+    "ScalingBehavior": "DEFAULT",
+    "ColorMetadata": "INSERT",
+    "AntiAlias": "ENABLED",
+    "TimecodeInsertion": "DISABLED"
+  },
+  "ContainerSettings": {
+    "Mp4Settings": {
+      "MoovPlacement": "PROGRESSIVE_DOWNLOAD",
+      "CslgAtom": "INCLUDE",
+      "FreeSpaceBox": "EXCLUDE"
+    },
+    "Container": "MP4"
+  }
+}

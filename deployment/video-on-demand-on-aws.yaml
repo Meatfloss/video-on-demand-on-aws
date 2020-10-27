@@ -723,21 +723,51 @@ Resources:
           Destination: !Ref Destination
           FrameCapture: !Ref FrameCapture
           ArchiveSource: !Ref Glacier
-          MediaConvert_Template_2160p:
+          MediaConvert_Template_Sapphire_2160p:
             !If
               - IsMediaPackageEnabled
               - !Sub "${AWS::StackName}_Ott_2160p_Avc_Aac_16x9_mvod"
-              - !Sub "${AWS::StackName}_Ott_2160p_Avc_Aac_16x9_qvbr"
-          MediaConvert_Template_1080p:
+              - !Sub "${AWS::StackName}_Sapphire_Ott_2160p_Avc_Aac_16x9_qvbr"
+          MediaConvert_Template_Sapphire_1080p:
             !If
               - IsMediaPackageEnabled
               - !Sub "${AWS::StackName}_Ott_1080p_Avc_Aac_16x9_mvod"
-              - !Sub "${AWS::StackName}_Ott_1080p_Avc_Aac_16x9_qvbr"
-          MediaConvert_Template_720p:
+              - !Sub "${AWS::StackName}_Sapphire_Ott_1080p_Avc_Aac_16x9_qvbr"
+          MediaConvert_Template_Sapphire_720p:
             !If
               - IsMediaPackageEnabled
               - !Sub "${AWS::StackName}_Ott_720p_Avc_Aac_16x9_mvod"
-              - !Sub "${AWS::StackName}_Ott_720p_Avc_Aac_16x9_qvbr"
+              - !Sub "${AWS::StackName}_Sapphire_Ott_720p_Avc_Aac_16x9_qvbr"
+          MediaConvert_Template_Ruby_2160p:
+            !If
+              - IsMediaPackageEnabled
+              - !Sub "${AWS::StackName}_Ott_2160p_Avc_Aac_16x9_mvod"
+              - !Sub "${AWS::StackName}_Ruby_Ott_2160p_Avc_Aac_16x9_qvbr"
+          MediaConvert_Template_Ruby_1080p:
+            !If
+              - IsMediaPackageEnabled
+              - !Sub "${AWS::StackName}_Ott_1080p_Avc_Aac_16x9_mvod"
+              - !Sub "${AWS::StackName}_Ruby_Ott_1080p_Avc_Aac_16x9_qvbr"
+          MediaConvert_Template_Ruby_720p:
+            !If
+              - IsMediaPackageEnabled
+              - !Sub "${AWS::StackName}_Ott_720p_Avc_Aac_16x9_mvod"
+              - !Sub "${AWS::StackName}_Ruby_Ott_720p_Avc_Aac_16x9_qvbr"
+          MediaConvert_Template_Emerald_2160p:
+            !If
+              - IsMediaPackageEnabled
+              - !Sub "${AWS::StackName}_Ott_2160p_Avc_Aac_16x9_mvod"
+              - !Sub "${AWS::StackName}_Emerald_Ott_2160p_Avc_Aac_16x9_qvbr"
+          MediaConvert_Template_Emerald_1080p:
+            !If
+              - IsMediaPackageEnabled
+              - !Sub "${AWS::StackName}_Ott_1080p_Avc_Aac_16x9_mvod"
+              - !Sub "${AWS::StackName}_Emerald_Ott_1080p_Avc_Aac_16x9_qvbr"
+          MediaConvert_Template_Emerald_720p:
+            !If
+              - IsMediaPackageEnabled
+              - !Sub "${AWS::StackName}_Ott_720p_Avc_Aac_16x9_mvod"
+              - !Sub "${AWS::StackName}_Emerald_Ott_720p_Avc_Aac_16x9_qvbr"
           CloudFront: !GetAtt CloudFront.DomainName
           EnableMediaPackage: !Ref EnableMediaPackage
           InputRotate: DEGREE_0
@@ -1407,32 +1437,86 @@ Resources:
                   "BooleanEquals": true,
                   "Next": "Custom jobTemplate"
                 },
-                        {
+                {
                   "Variable": "$.encodingProfile ",
-                  "NumericEquals": 2160,
-                  "Next": "jobTemplate 2160p"
+                  "StringEquals": "sapphire2160",
+                  "Next": "jobTemplate sapphire 2160p"
                 },
                 {
                   "Variable": "$.encodingProfile ",
-                  "NumericEquals": 1080,
-                  "Next": "jobTemplate 1080p"
+                  "StringEquals": "sapphire1080",
+                  "Next": "jobTemplate sapphire 1080p"
                 },
                 {
                   "Variable": "$.encodingProfile ",
-                  "NumericEquals": 720,
-                  "Next": "jobTemplate 720p"
+                  "StringEquals": "sapphire720",
+                  "Next": "jobTemplate sapphire 720p"
+                },
+                {
+                  "Variable": "$.encodingProfile ",
+                  "StringEquals": "ruby2160",
+                  "Next": "jobTemplate ruby 2160p"
+                },
+                {
+                  "Variable": "$.encodingProfile ",
+                  "StringEquals": "ruby1080",
+                  "Next": "jobTemplate ruby 1080p"
+                },
+                {
+                  "Variable": "$.encodingProfile ",
+                  "StringEquals": "ruby720",
+                  "Next": "jobTemplate ruby 720p"
+                },
+                {
+                  "Variable": "$.encodingProfile ",
+                  "StringEquals": "emerald2160",
+                  "Next": "jobTemplate emerald 2160p"
+                },
+                {
+                  "Variable": "$.encodingProfile ",
+                  "StringEquals": "emerald1080",
+                  "Next": "jobTemplate emerald 1080p"
+                },
+                {
+                  "Variable": "$.encodingProfile ",
+                  "StringEquals": "emerald720",
+                  "Next": "jobTemplate emerald 720p"
                 }
               ]
             },
-            "jobTemplate 2160p": {
+            "jobTemplate sapphire 2160p": {
               "Type": "Pass",
               "Next": "Accelerated Transcoding Check"
             },
-            "jobTemplate 1080p": {
+            "jobTemplate sapphire 1080p": {
               "Type": "Pass",
               "Next": "Accelerated Transcoding Check"
             },
-            "jobTemplate 720p": {
+            "jobTemplate sapphire 720p": {
+              "Type": "Pass",
+              "Next": "Accelerated Transcoding Check"
+            },
+            "jobTemplate ruby 2160p": {
+              "Type": "Pass",
+              "Next": "Accelerated Transcoding Check"
+            },
+            "jobTemplate ruby 1080p": {
+              "Type": "Pass",
+              "Next": "Accelerated Transcoding Check"
+            },
+            "jobTemplate ruby 720p": {
+              "Type": "Pass",
+              "Next": "Accelerated Transcoding Check"
+            },
+            "jobTemplate emerald 2160p": {
+              "Type": "Pass",
+              "Next": "Accelerated Transcoding Check"
+            },
+            "jobTemplate emerald 1080p": {
+              "Type": "Pass",
+              "Next": "Accelerated Transcoding Check"
+            },
+            "jobTemplate emerald 720p": {
               "Type": "Pass",
               "Next": "Accelerated Transcoding Check"
             },

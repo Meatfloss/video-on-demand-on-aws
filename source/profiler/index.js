@@ -55,7 +55,7 @@ exports.handler = async (event) => {
             lastProfile = profile;
         });
 
-        event.encodingProfile = encodeProfile;
+        event.encodingProfile = event.site + encodeProfile.toString();
 
         if (event.frameCapture) {
             // Match Height x Width with the encoding profile.
