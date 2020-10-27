@@ -82,10 +82,10 @@ exports.handler = async (event) => {
                 'ruby720': event.jobTemplate_ruby_720p,
                 'emerald2160': event.jobTemplate_emerald_2160p,
                 'emerald1080': event.jobTemplate_emerald_1080p,
-                'emerald720': event.jobTemplate_emerald_720p,
+                'emerald720': event.jobTemplate_emerald_720p
             };
 
-            event.jobTemplate = jobTemplates[encodeProfile];
+            event.jobTemplate = jobTemplates[event.encodingProfile];
             console.log(`Chosen template:: ${event.jobTemplate}`);
 
             event.isCustomTemplate = false;
