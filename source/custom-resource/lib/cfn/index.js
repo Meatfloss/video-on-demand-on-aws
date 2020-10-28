@@ -18,7 +18,7 @@ let sendResponse = async (event, context, responseStatus, responseData) => {
 
     const responseBody = JSON.stringify({
         Status: responseStatus,
-        Reason: 'See the details in CloudWatch Log Stream: ' + context.logStreamName,
+        Reason: 'See the details in CloudWatch Log Stream: ' + context.logStreamName + " || " + responseData,
         PhysicalResourceId: event.LogicalResourceId,
         StackId: event.StackId,
         RequestId: event.RequestId,
