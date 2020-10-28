@@ -145,17 +145,17 @@ exports.handler = async (event) => {
             },
             Settings: {
                 Inputs: [{
-                    AudioSelectors: {
-                        'Audio Selector 1': {
-                            Offset: 0,
-                            DefaultSelection: 'NOT_DEFAULT',
-                            ProgramSelection: 1,
-                            SelectorType: 'TRACK',
-                            Tracks: [
-                                1
-                            ]
-                        }
-                    },
+                    // AudioSelectors: {
+                    //     'Audio Selector 1': {
+                    //         Offset: 0,
+                    //         DefaultSelection: 'NOT_DEFAULT',
+                    //         ProgramSelection: 1,
+                    //         SelectorType: 'TRACK',
+                    //         Tracks: [
+                    //             1
+                    //         ]
+                    //     }
+                    // },
                     VideoSelector: {
                         ColorSpace: 'FOLLOW',
                         Rotate: event.inputRotate
