@@ -47,7 +47,7 @@ exports.handler = async (event) => {
                 params = {
                     stateMachineArn: process.env.IngestWorkflow,
                     input: JSON.stringify(event),
-                    name: event.guid + uuidv4()
+                    name: (event.guid + uuidv4()).substring(0, 80)
                 };
                 response = 'success';
                 break;
@@ -59,7 +59,7 @@ exports.handler = async (event) => {
                     input: JSON.stringify({
                         guid: event.guid
                     }),
-                    name: event.guid + uuidv4()
+                    name: (event.guid + uuidv4()).substring(0, 80)
                 };
                 response = 'success';
                 break;
@@ -69,7 +69,7 @@ exports.handler = async (event) => {
                 params = {
                     stateMachineArn: process.env.PublishWorkflow,
                     input: JSON.stringify(event),
-                    name: event.detail.userMetadata.guid + uuidv4()
+                    name: (event.detail.userMetadata.guid + uuidv4()).substring(0, 80)
                 };
                 response = 'success';
                 break;
